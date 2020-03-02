@@ -54,7 +54,7 @@ public class MQTTController {
 
 ···
 
-@Component(value = "messageHandler")
+@Component(value = "messageHandler")  
 public class ReceiveMessagehandler implements MessageHandler {
 
     @Override
