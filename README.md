@@ -32,7 +32,7 @@ spring:
 
 @RestController  
 @RequestMapping(value = "/mqtt")  
-@Slf4j
+@Slf4j  
 public class MQTTController {
 
     @Autowired
