@@ -30,8 +30,8 @@ spring:
 
 ···
 
-@RestController
-@RequestMapping(value = "/mqtt")
+@RestController  
+@RequestMapping(value = "/mqtt")  
 @Slf4j
 public class MQTTController {
 
