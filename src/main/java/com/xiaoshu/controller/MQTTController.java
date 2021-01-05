@@ -38,14 +38,21 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 public class MQTTController {
 
-    @Autowired
+    /**
+     * mqtt message send handler
+     */
+    @Autowired(required = false)
     private MqttGateway mqttGateway;
 
-
+    /**
+     * 发送MQTT消息信息；
+     * @param content
+     * @return
+     */
     @RequestMapping(value = "/send")
-    public String  sendMessage(){
-        log.info("send Message ...");
-        mqttGateway.sendToMqtt("The test Message".getBytes(),"/test/123456");
+    public String  sendMessage(String content){
+        log.info("send Message ... :{}", content);
+        mqttGateway.sendToMqtt(content.getBytes(),"/test/123456");
         return "success";
     }
 }

@@ -36,7 +36,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class MqttSpringBootStarterExampleApplication {
 
     public static void main(String[] args) {
-        log.info("start up mqtt example server ...");
+        log.info("start up mqtt example server ... on time :{}", System.currentTimeMillis());
         SpringApplication.run(MqttSpringBootStarterExampleApplication.class, args);
     }
 
