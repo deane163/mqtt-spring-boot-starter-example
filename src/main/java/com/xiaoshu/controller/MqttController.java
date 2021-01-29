@@ -1,6 +1,6 @@
 package com.xiaoshu.controller;
 
-import com.ubtechinc.sevice.MqttGateway;
+import com.xiaoshu.service.MqttGateway;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -38,9 +38,17 @@ import org.springframework.web.bind.annotation.RestController;
 @Slf4j
 public class MqttController {
 
+    /**
+     * mqtt message send handler
+     */
     @Autowired(required = false)
     private MqttGateway mqttGateway;
 
+    /**
+     * 发送MQTT消息信息；
+     * @param content
+     * @return
+     */
     @RequestMapping(value = "/send")
     public String  sendMessage(String content){
         log.info("send Message ...");

@@ -36,15 +36,16 @@ import org.springframework.stereotype.Component;
 @Slf4j
 public class ReceiveMessageHandler implements MessageHandler {
 
+    /**
+     * 接收消息，并对接收到的消息进行处理；
+     * @param message
+     */
     @Override
     public void handleMessage(Message<?> message) {
-        System.out.println("MyMessageHandler ====>  收到订阅消息: ==>" + message);
         String topic = message.getHeaders().get("mqtt_receivedTopic").toString();
-        System.out.println("MyMessageHandler ====> 消息主题：==>" + topic);
         Object payLoad = message.getPayload();
-
         // 如果不设置转换器这里强转byte[]会报错
         byte[] data = (byte[]) payLoad;
-        System.out.println("MyMessageHandler====> Message is : ==> "  + new String(data));
+        log.info("[custom define handler] topic :{} Receive Message====> Message is :{}", topic, new String(data));
     }
 }
