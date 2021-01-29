@@ -1,6 +1,6 @@
 package com.xiaoshu.controller;
 
-import com.xiaoshu.service.MqttGateway;
+import com.ubtechinc.sevice.MqttGateway;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,16 +36,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping(value = "/mqtt")
 @Slf4j
-public class MQTTController {
+public class MqttController {
 
-    @Autowired
+    @Autowired(required = false)
     private MqttGateway mqttGateway;
 
-
     @RequestMapping(value = "/send")
-    public String  sendMessage(){
+    public String  sendMessage(String content){
         log.info("send Message ...");
-        mqttGateway.sendToMqtt("The test Message".getBytes(),"/test/123456");
+        mqttGateway.sendToMqtt(content.getBytes(),"/test/123456");
         return "success";
     }
 }

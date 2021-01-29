@@ -1,8 +1,6 @@
 package com.xiaoshu.service;
 
-import com.xiaoshu.annotaion.MessagehandlerAnnotation;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnMissingBean;
-import org.springframework.context.annotation.Lazy;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.messaging.Message;
 import org.springframework.messaging.MessageHandler;
 import org.springframework.stereotype.Component;
@@ -34,8 +32,9 @@ import org.springframework.stereotype.Component;
  * <p>
  * Copyright (C)2013-2020 小树盛凯科技 All rights reserved.
  */
-//@Component(value = "messageHandler")
-public class ReceiveMessagehandler implements MessageHandler {
+@Component(value = "messageHandler")
+@Slf4j
+public class ReceiveMessageHandler implements MessageHandler {
 
     @Override
     public void handleMessage(Message<?> message) {
